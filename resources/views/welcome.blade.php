@@ -88,8 +88,65 @@
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="#" id="facebook">Facebook</a>
                 </div>
             </div>
         </div>
+        
+
+    <script>
+    // window.fbAsyncInit = function() {
+    //   FB.init({
+    //     appId      : '294194448050723',
+    //     cookie     : true,
+    //     xfbml      : true,
+    //     version    : 'v3.1'
+    //   });
+    
+    //   document.getElementById('facebook').addEventListener('click', function(ev) {
+    //       ev.preventDefault();
+    //       FB.login(function(response) {
+    //           console.log(response);
+    //       }, {scope: 'email'});    
+    //   });
+    // };
+    
+    // (function(d, s, id){
+    //    var js, fjs = d.getElementsByTagName(s)[0];
+    //    if (d.getElementById(id)) {return;}
+    //    js = d.createElement(s); js.id = id;
+    //    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    //    fjs.parentNode.insertBefore(js, fjs);
+    //  }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script src="{{ asset(mix('/js/app.js')) }}"></script>
+    <script>
+        // var facebook = new Facebook();
+        // var httpClient = new HttpClient();
+        // var auth = new Auth(facebook, httpClient);
+        // document.getElementById('facebook').addEventListener('click', function(ev) {
+        //     ev.preventDefault();
+        //     auth.login();
+        // });
+
+        var facebook = new Facebook();
+        document.getElementById('facebook').addEventListener('click', function(ev) {
+            ev.preventDefault();
+            facebook.login().then(function(response) {
+                console.log(JSON.stringify(response));
+            });
+        });
+        
+        // facebook.init().then(function(FB) {
+        //     document.getElementById('facebook').addEventListener('click', function(ev) {
+        //         ev.preventDefault();
+        //         FB.login(function(response) {
+        //             console.log(JSON.stringify(response));
+        //         }, {scope: 'email'});    
+        //     });
+        // });
+    </script>
+
     </body>
 </html>
